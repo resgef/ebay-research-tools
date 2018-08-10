@@ -1,4 +1,4 @@
-Implementation example codes, along with an demo app built with the example blocks, to build product research apps with ebay api.
+Research over eBay items with keyword based search.
 **requirements**
 -
 - python 3.6
@@ -6,3 +6,10 @@ Implementation example codes, along with an demo app built with the example bloc
 - requests 2
 - celery 4.2
 - redis 2
+
+**Installation**
+-
+- Create virtual env, install pip packages from requirements.txt
+
+**Database**
+Database is optional. For scaling need only, Elasticsearch engine can be used.

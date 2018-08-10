@@ -21,16 +21,6 @@ xml = """
 r = requests.get("""
 http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=SAMPLE-paulsl-PRD-02466ad0e-95ff6e2e&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=harry%20potter%20phoenix&paginationInput.entriesPerPage=100
 """)
-# request_json = {
-#     "findItemsByKeywordsRequest": {
-#         "xmlns": "http://www.ebay.com/marketplace/search/v1/services",
-#         "keywords": "harry potter phoenix",
-#         "paginationInput": {
-#             "entriesPerPage": "2"
-#         }
-#     }
-# }
-# r = requests.get(endpoint, headers=headers, data=request_json)
 
 resp_json = r.content
 total_listed = resp_json['findItemsByKeywordsResponse']['paginationOutput'][0]['totalEntries']

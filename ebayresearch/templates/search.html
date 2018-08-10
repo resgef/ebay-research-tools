@@ -30,13 +30,43 @@
 
 <div class="container">
     <div class="page-header">
-        <h1>Example set 1</h1>
-        <div class="input-group">
-            <input type="text" class="form-control">
-            <div class="input-group-append">
-                <button type="button" class="btn btn-outline-primary"><i class="fa fa-search"></i></button>
+        <h1>Search by keyword</h1>
+        <form action="" method="get">
+            <div class="input-group">
+                <input type="text" class="form-control" name="search">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-outline-primary"><i class="fa fa-search"></i></button>
+                </div>
             </div>
-        </div>
+        </form>
+        {% if items|length %}
+            <table class="table table-bordered table-responsive">
+                <thead>
+                <tr>
+                    <th>image</th>
+                    <th>itemid</th>
+                    <th>title</th>
+                    <th>price</th>
+                    <th>quantity</th>
+                    <th>sold</th>
+                    <th>shipping</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td><img src="{{ item.galleryURL }}"/></td>
+                        <td>{{ item.itemId }}</td>
+                        <td><a hyref="{{ item.viewItemURL }}">{{ item.title }}</a></td>
+                        <td>{{ item.price }}</td>
+                        <td>NA</td>
+                        <td>NA</td>
+                        <td>{{ item.shipping_cost }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
     </div>
 
 </div>
