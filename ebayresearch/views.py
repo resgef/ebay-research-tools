@@ -13,7 +13,7 @@ def index(request):
         items = []
         pagination = {}
 
-    return render(request, 'search.html', {'items': items, 'pagination': pagination})
+    return render(request, 'search.html', {'items': items, 'pagination': pagination, 'form': form.cleaned_data})
 
 
 def findItemsByKeywords(keyword):
