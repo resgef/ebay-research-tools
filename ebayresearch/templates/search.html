@@ -40,34 +40,39 @@
             </div>
         </form>
         {% if items|length %}
-            <table class="table table-bordered table-responsive">
-                <thead>
-                <tr>
-                    <th>image</th>
-                    <th>itemid</th>
-                    <th>title</th>
-                    <th>price</th>
-                    <th>quantity</th>
-                    <th>sold</th>
-                    <th>seller</th>
-                    <th>shipping</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for item in items %}
+            <div class="mt-2">
+                <div>
+                    {{ pagination.totalEntries }} items matched. Showing {{ items|length }}
+                </div>
+                <table class="table table-bordered table-responsive">
+                    <thead>
                     <tr>
-                        <td><img height="32" width="32" src="{{ item.galleryURL }}"/></td>
-                        <td>{{ item.itemId }}</td>
-                        <td><a href="{{ item.viewItemURL }}">{{ item.title }}</a></td>
-                        <td>{{ item.price }}</td>
-                        <td>(loading)</td>
-                        <td>(loading)</td>
-                        <td>(loading)</td>
-                        <td>{{ item.shipping_cost }}</td>
+                        <th>image</th>
+                        <th>itemid</th>
+                        <th>title</th>
+                        <th>price</th>
+                        <th>quantity</th>
+                        <th>sold</th>
+                        <th>seller</th>
+                        <th>shipping</th>
                     </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    {% for item in items %}
+                        <tr>
+                            <td><img height="32" width="32" src="{{ item.galleryURL }}"/></td>
+                            <td>{{ item.itemId }}</td>
+                            <td><a href="{{ item.viewItemURL }}">{{ item.title }}</a></td>
+                            <td>{{ item.price }}</td>
+                            <td>(loading)</td>
+                            <td>(loading)</td>
+                            <td>(loading)</td>
+                            <td>{{ item.shipping_cost }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         {% endif %}
     </div>
 
