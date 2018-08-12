@@ -18,12 +18,12 @@ def index(request):
 
 def findItemsByKeywords(keyword):
     def shipping_cost(item: dict):
-        if item['shippingInfo'][0]['shippingType'] == 'Free':
+        if item['shippingInfo'][0]['shippingType'][0] == 'Free':
             return 'Free'
-        elif item['shippingInfo'][0]['shippingType'] == 'Flat':
+        elif item['shippingInfo'][0]['shippingType'][0] == 'Flat':
             return (item['shippingInfo'][0]['shippingServiceCost'][0]['@currencyId'] +
                     item['shippingInfo'][0]['shippingServiceCost'][0]['__value__'])
-        elif item['shippingInfo'][0]['shippingType'] == 'Calculated':
+        elif item['shippingInfo'][0]['shippingType'][0] == 'Calculated':
             return 'Calculated'
 
     def price(item: dict):
@@ -45,10 +45,10 @@ def findItemsByKeywords(keyword):
     items = []
     for item in result['searchResult'][0]['item']:
         items.append({
-            'itemId': item['itemId'],
-            'title': item['title'],
-            'galleryURL': item['galleryURL'],
-            'viewItemURL': item['viewItemURL'],
+            'itemId': item['itemId'][0],
+            'title': item['title'][0],
+            'galleryURL': item['galleryURL'][0],
+            'viewItemURL': item['viewItemURL'][0],
             'shipping_cost': shipping_cost(item),
             'price': price(item)
         })

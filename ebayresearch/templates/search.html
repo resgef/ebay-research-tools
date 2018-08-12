@@ -49,18 +49,20 @@
                     <th>price</th>
                     <th>quantity</th>
                     <th>sold</th>
+                    <th>seller</th>
                     <th>shipping</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% for item in items %}
                     <tr>
-                        <td><img src="{{ item.galleryURL }}"/></td>
+                        <td><img height="32" width="32" src="{{ item.galleryURL }}"/></td>
                         <td>{{ item.itemId }}</td>
-                        <td><a hyref="{{ item.viewItemURL }}">{{ item.title }}</a></td>
+                        <td><a href="{{ item.viewItemURL }}">{{ item.title }}</a></td>
                         <td>{{ item.price }}</td>
-                        <td>NA</td>
-                        <td>NA</td>
+                        <td>(loading)</td>
+                        <td>(loading)</td>
+                        <td>(loading)</td>
                         <td>{{ item.shipping_cost }}</td>
                     </tr>
                 {% endfor %}
