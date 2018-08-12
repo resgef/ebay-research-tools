@@ -4,8 +4,8 @@ Research over eBay items with keyword based search.
 - python 3.6
 - django 1.11 (for the app)
 - requests 2
-- celery 4.2
-- redis 2
+- celery 4.2 (optional)
+- redis 2 (optional)
 
 **Installation**
 -
