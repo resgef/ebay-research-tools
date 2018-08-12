@@ -25,6 +25,10 @@ def findItemsByKeywords(keyword):
                     item['shippingInfo'][0]['shippingServiceCost'][0]['__value__'])
         elif item['shippingInfo'][0]['shippingType'][0] == 'Calculated':
             return 'Calculated'
+        else:
+            return '{} {}{}'.format(item['shippingInfo'][0]['shippingType'][0],
+                                    item['shippingInfo'][0]['shippingServiceCost'][0]['@currencyId'],
+                                    item['shippingInfo'][0]['shippingServiceCost'][0]['__value__'])
 
     def price(item: dict):
         return (item['sellingStatus'][0]['currentPrice'][0]['@currencyId'] +
