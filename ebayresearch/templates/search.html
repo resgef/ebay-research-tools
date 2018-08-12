@@ -53,6 +53,7 @@
                         <th>price</th>
                         <th>quantity</th>
                         <th>sold</th>
+                        <th>sold last 30d</th>
                         <th>seller</th>
                         <th>shipping</th>
                     </tr>
@@ -67,7 +68,8 @@
                             <td>(loading)</td>
                             <td>(loading)</td>
                             <td>(loading)</td>
-                            <td>{{ item.shipping_cost }}</td>
+                            <td>(loading)</td>
+                            <td>{{ item.shipping }}</td>
                         </tr>
                     {% endfor %}
                     </tbody>

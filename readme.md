@@ -9,7 +9,12 @@ Research over eBay items with keyword based search.
 
 **Installation**
 -
-- Create virtual env, install pip packages from requirements.txt
+- Create virtual env ( virtualenv -p /usr/bin/python3.6 env )
+- install pip packages from requirements.txt ( pip install -r requirements.txt )
 
 **Database**
-Database is optional. For scaling need only, Elasticsearch engine can be used.
+ is optional, for scaling need only. Elasticsearch engine can be used.
+ 
+ **Presentation**
+  -
+  [![IMAGE Ebayresearch example](https://img.youtube.com/vi/DyvEUUK7VSE/0.jpg)](https://youtu.be/DyvEUUK7VSE)

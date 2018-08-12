@@ -17,18 +17,18 @@ def index(request):
 
 
 def findItemsByKeywords(keyword):
-    def shipping_cost(item: dict):
+    def shipping(item: dict):
         if item['shippingInfo'][0]['shippingType'][0] == 'Free':
-            return 'Free'
+            return 'Free', '', ''
         elif item['shippingInfo'][0]['shippingType'][0] == 'Flat':
-            return (item['shippingInfo'][0]['shippingServiceCost'][0]['@currencyId'] +
-                    item['shippingInfo'][0]['shippingServiceCost'][0]['__value__'])
+            return 'Flat', item['shippingInfo'][0]['shippingServiceCost'][0]['@currencyId'], \
+                   item['shippingInfo'][0]['shippingServiceCost'][0]['__value__']
         elif item['shippingInfo'][0]['shippingType'][0] == 'Calculated':
-            return 'Calculated'
+            return 'Calculated', '', ''
         else:
-            return '{} {}{}'.format(item['shippingInfo'][0]['shippingType'][0],
-                                    item['shippingInfo'][0]['shippingServiceCost'][0]['@currencyId'],
-                                    item['shippingInfo'][0]['shippingServiceCost'][0]['__value__'])
+            return (item['shippingInfo'][0]['shippingType'][0],
+                    item['shippingInfo'][0]['shippingServiceCost'][0]['@currencyId'],
+                    item['shippingInfo'][0]['shippingServiceCost'][0]['__value__'])
 
     def price(item: dict):
         return (item['sellingStatus'][0]['currentPrice'][0]['@currencyId'] +
@@ -53,7 +53,7 @@ def findItemsByKeywords(keyword):
             'title': item['title'][0],
             'galleryURL': item['galleryURL'][0],
             'viewItemURL': item['viewItemURL'][0],
-            'shipping_cost': shipping_cost(item),
+            'shipping': shipping(item),
             'price': price(item)
         })
     return pagination, items
